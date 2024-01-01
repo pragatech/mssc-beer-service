@@ -3,6 +3,7 @@ package praga.springframework.msscbeerservice.web.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import praga.springframework.msscbeerservice.web.model.BeerDto;
 
@@ -19,14 +20,14 @@ public class BeerController {
     }
 
     @PostMapping
-    public ResponseEntity saveNewBeer(@RequestBody BeerDto beerDto){
+    public ResponseEntity saveNewBeer(@RequestBody @Validated BeerDto beerDto){
         //todo Impl
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @PutMapping("/{beerId}")
     public ResponseEntity updateBeerById(
-            @RequestBody BeerDto beerDto,
+            @Validated @RequestBody BeerDto beerDto,
             @PathVariable UUID beerId
     ){
         //todo Impl
