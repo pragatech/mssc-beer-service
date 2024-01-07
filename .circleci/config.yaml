@@ -34,6 +34,6 @@ jobs:
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
-mssc-beer-workflow:
-  jobs:
-    - mssc-beer-build
+  mssc-beer-workflow:
+    jobs:
+      - mssc-beer-build
