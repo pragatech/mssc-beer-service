@@ -14,6 +14,7 @@ jobs:
           key: v1-dependencies-cache
       - run: 
           command: |
+            sed -i -e 's/\r$//' mvnw
             chmod +x mvnw
             ./mvnw integration-test
     docker:
