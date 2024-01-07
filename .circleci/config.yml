@@ -9,7 +9,7 @@ jobs:
             - v1-dependencies-
       - run:  
           command: |
-            sed -i -e 's/\r$//' mvnw
+            #sed -i -e 's/\r$//' mvnw
             chmod 777 mvnw
             ./mvnw dependency:go-offline
       - save_cache:
