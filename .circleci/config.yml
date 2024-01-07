@@ -12,7 +12,7 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-cache
-      - run: ./mvnw integration-test
+      - run: chmod +x mvnw | ./mvnw integration-test
     docker:
       - image: openjdk:21-rc-slim
     environment:
