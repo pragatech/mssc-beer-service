@@ -15,7 +15,7 @@ jobs:
       - run: 
           command: |
             sed -i -e 's/\r$//' mvnw
-            chmod +x mvnw
+            chmod 777 mvnw
             ./mvnw integration-test
     docker:
       - image: openjdk:21-rc-slim
