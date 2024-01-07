@@ -5,7 +5,7 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
-  build:
+  mssc-beer-build:
     docker:
       - image: openjdk:21-rc-slim
         # Specify service dependencies here if necessary
@@ -31,3 +31,9 @@ jobs:
               key: v1-dependencies-{{ checksum "pom.xml" }}
           #run tests
           - run: mvn integration-test
+# Orchestrate jobs using workflows
+# See: https://circleci.com/docs/configuration-reference/#workflows
+workflows:
+mssc-beer-workflow:
+  jobs:
+    - mssc-beer-build
