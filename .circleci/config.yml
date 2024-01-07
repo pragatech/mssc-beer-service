@@ -10,7 +10,7 @@ jobs:
       - run:  
           command: |
             sed -i -e 's/\r$//' mvnw
-            #chmod 777 mvnw
+            chmod +x mvnw
             ./mvnw dependency:go-offline
       - save_cache:
           paths:
@@ -19,7 +19,7 @@ jobs:
       - run: 
           command: |
             sed -i -e 's/\r$//' mvnw
-            #chmod 777 mvnw
+            chmod +x mvnw
             ./mvnw integration-test
     docker:
       - image: openjdk:21-rc-slim
