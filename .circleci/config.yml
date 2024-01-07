@@ -5,21 +5,21 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-cache
+            - v1-dependencies-{{ checksum "pom.xml" }}
             - v1-dependencies-
       - run:  
           command: |
-            #sed -i -e 's/\r$//' mvnw
-            chmod 777 mvnw
+            sed -i -e 's/\r$//' mvnw
+            #chmod 777 mvnw
             ./mvnw dependency:go-offline
       - save_cache:
           paths:
             - ~/.m2
-          key: v1-dependencies-cache
+          key: v1-dependencies-{{ checksum "pom.xml" }}
       - run: 
           command: |
             sed -i -e 's/\r$//' mvnw
-            chmod 777 mvnw
+            #chmod 777 mvnw
             ./mvnw integration-test
     docker:
       - image: openjdk:21-rc-slim
